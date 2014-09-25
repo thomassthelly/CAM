@@ -2,7 +2,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,6 +39,7 @@ public class Splash extends JFrame {
 				.getMaximumWindowBounds().width, 234);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
+		setBackground(new Color(34, 139, 34));
 		contentPane.setBackground(new Color(34, 139, 34));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout());
@@ -57,8 +57,7 @@ public class Splash extends JFrame {
 			@Override
 			public void run() {
 				try {
-					// thread creates 3s delay
-					Thread.sleep(3);
+					Thread.sleep(4000);
 					new MainFrame();
 					setVisible(false);
 				} catch (InterruptedException e) {
