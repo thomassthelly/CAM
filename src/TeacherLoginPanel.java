@@ -76,7 +76,7 @@ public class TeacherLoginPanel extends JPanel {
 				int user_id = db.getInt(sql, 1);
 				if (user_id != 0) {
 					p_teacher.removeAll();
-					p_teacher.add(new TeacherLoggedInPanel(user_id, rectangle),
+					p_teacher.add(new TeacherLoggedInPanel(),
 							"teacher_logged_in");
 				} else {
 					JOptionPane.showMessageDialog(null,

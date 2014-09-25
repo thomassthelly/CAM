@@ -1,4 +1,7 @@
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,42 +24,48 @@ public class StudentLoggedInPanel extends JPanel {
 
 		// initialize all sub components
 		// ----------------------------------
-		setLayout(null);
-		setBounds(rectangle);
+		setLayout(new GridBagLayout());
 
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(10, 10, 10, 10);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.fill = GridBagConstraints.NONE;
+		
+		
+		
+		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(26, 23, 117, 14);
-		add(lblName);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.LINE_START;
+		add(lblName, gbc);
 
 		JLabel lblBranch = new JLabel("Branch");
-		lblBranch.setBounds(153, 23, 46, 14);
-		add(lblBranch);
+		gbc.gridx = 1;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.LINE_START;
+		add(lblBranch, gbc);
 
 		JLabel lblSemester = new JLabel("Semester");
-		lblSemester.setBounds(228, 23, 46, 14);
-		add(lblSemester);
+		gbc.gridx = 2;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.LINE_START;
+		add(lblSemester, gbc);
 
 		JLabel lblYear = new JLabel("Year");
-		lblYear.setBounds(325, 23, 46, 14);
-		add(lblYear);
+		gbc.gridx = 3;
+		gbc.gridy = 0;
+		gbc.anchor = GridBagConstraints.LINE_START;
+		add(lblYear, gbc);
 
 		JLabel lblAtt = new JLabel("");
 		lblAtt.setFont(new Font("Tahoma", Font.PLAIN, 36));
-		lblAtt.setBounds(163, 48, 188, 73);
-		add(lblAtt);
-
-		JLabel lblTableShowingDate = new JLabel(
-				"Table showing date and no of hrs");
-		lblTableShowingDate.setBounds(10, 198, 264, 14);
-		add(lblTableShowingDate);
-
-		JLabel lblNoOfHours = new JLabel("No of hours needed to make up to 75%");
-		lblNoOfHours.setBounds(10, 180, 243, 14);
-		add(lblNoOfHours);
-
-		JLabel lblPerSubjectAttendance = new JLabel("Per subject attendance");
-		lblPerSubjectAttendance.setBounds(10, 159, 154, 14);
-		add(lblPerSubjectAttendance);
+		gbc.gridx = 0;
+		gbc.gridy = 1;
+		gbc.gridwidth = 4;
+		gbc.anchor = GridBagConstraints.CENTER;
+		add(lblAtt, gbc);
 
 		// initialize data into view elements
 		// --------------------------------------------
@@ -89,7 +98,9 @@ public class StudentLoggedInPanel extends JPanel {
 				p_student.add(new StudentLoginPanel(p_student, rectangle));
 			}
 		});
-		btnBack.setBounds(351, 266, 89, 23);
-		add(btnBack);
+		gbc.gridx = 3;
+		gbc.gridy = 2;
+		gbc.anchor = GridBagConstraints.LINE_END;
+		add(btnBack, gbc);
 	}
 }

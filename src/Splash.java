@@ -33,24 +33,23 @@ public class Splash extends JFrame {
 		// initialize all sub components
 		// ----------------------------------
 
-		sb = new StringBuilder("College Attendance Manager ");
-		
+		sb = new StringBuilder("College Attendance Manager");
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//		setBounds(0, 284, java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().width, 200);
-		setSize(java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment().getMaximumWindowBounds().width, 234);
+		setSize(java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment()
+				.getMaximumWindowBounds().width, 234);
 		setLocationRelativeTo(null);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(34, 139, 34));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-//		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout());
-		
+
 		final JLabel lblNewLabel = new JLabel(sb.toString());
 		lblNewLabel.setFont(new Font("Lucida Grande", Font.PLAIN, 72));
 		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		contentPane.add(lblNewLabel, BorderLayout.CENTER);
-		
+
 		getContentPane().add(contentPane);
 		setUndecorated(true);
 		Thread t = new Thread(new Runnable() {
@@ -58,18 +57,8 @@ public class Splash extends JFrame {
 			@Override
 			public void run() {
 				try {
-//					int l = sb.length();
-//					System.out.println(l);
 					// thread creates 3s delay
-//					for (int i = 1; i < 3000; i++) {
-//					TODO Uncomment Sleep Code
-						Thread.sleep(3);
-					/*	sb.append(".");
-						lblNewLabel.setText(sb.toString());
-//						System.out.println(sb.toString());
-						if(i%3 == 0)
-							sb.delete(l, l+3);
-					}*/
+					Thread.sleep(3);
 					new MainFrame();
 					setVisible(false);
 				} catch (InterruptedException e) {
