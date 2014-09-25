@@ -37,8 +37,8 @@ public class MainFrame extends JFrame {
 		p_teacher.add(new TeacherLoginPanel(p_teacher, getBounds()), "teacher_login");
 
 		
-//		setSize(800, 600);
-		pack();
+		setSize(800, 600);
+//		pack();
 		setLocationRelativeTo(null);
 //		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setVisible(true);
