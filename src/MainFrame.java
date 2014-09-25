@@ -34,7 +34,8 @@ public class MainFrame extends JFrame {
 		final JPanel p_teacher = new JPanel();
 		tabbedPane.addTab("Teacher", null, p_teacher, null);
 		p_teacher.setLayout(new GridLayout(0, 1, 0, 0));
-		p_teacher.add(new TeacherLoginPanel(p_teacher, getBounds()), "teacher_login");
+//		TODO change back to TeacherLoginPanel
+		p_teacher.add(new TeacherLoggedInPanel(), "teacher_login");
 
 		
 		setSize(800, 600);

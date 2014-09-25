@@ -98,7 +98,7 @@ public class StudentLoginPanel extends Panel {
 		final JTextField tf_roll_no = new JTextField();
 		// tf_roll_no.setBounds(0, 0, 0, 0);
 		// tf_roll_no.setBounds(227, 183, 117, 26);
-		tf_roll_no.setColumns(10);
+		tf_roll_no.setColumns(5);
 		add(tf_roll_no, gbc);
 
 		gbc.gridx = 1;

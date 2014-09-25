@@ -57,7 +57,7 @@ public class Splash extends JFrame {
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(4000);
+					Thread.sleep(4);
 					new MainFrame();
 					setVisible(false);
 				} catch (InterruptedException e) {
