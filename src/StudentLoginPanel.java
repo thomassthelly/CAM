@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.Panel;
 import java.awt.Rectangle;
@@ -21,8 +22,12 @@ public class StudentLoginPanel extends Panel {
 	public StudentLoginPanel(final JPanel p_student, final Rectangle rectangle) {
 		// initialize database connection
 		db = new DBHelper();
+//		setLayout(new AbsoluteLayout());
+		setSize(800, 600);
 		setLayout(null);
-		setBounds(rectangle);
+//		setBounds(rectangle);
+		
+		
 		JLabel lblYearOfJoining = new JLabel("Year of joining");
 		lblYearOfJoining.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblYearOfJoining.setBounds(103, 22, 114, 26);
@@ -56,11 +61,13 @@ public class StudentLoginPanel extends Panel {
 		add(label_3);
 
 		final JTextField tf_roll_no = new JTextField();
+		tf_roll_no.setBounds(0, 0, 0, 0);
 		tf_roll_no.setBounds(227, 183, 117, 26);
 		tf_roll_no.setColumns(10);
 		add(tf_roll_no);
 
 		JButton bView = new JButton("View");
+		bView.setBounds(0, 0, 0, 0);
 		bView.setBounds(227, 239, 117, 26);
 		bView.addActionListener(new ActionListener() {
 
@@ -89,7 +96,8 @@ public class StudentLoginPanel extends Panel {
 							int stud_id = Integer.parseInt(rs.getObject(1)
 									.toString());
 							p_student.removeAll();
-							p_student.add(new StudentLoggedInPanel(stud_id, p_student, rectangle),
+							p_student.add(new StudentLoggedInPanel(stud_id,
+									p_student, rectangle),
 									"student_logged_in_panel");
 
 						}

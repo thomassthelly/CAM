@@ -63,15 +63,15 @@ public class Splash extends JFrame {
 					// thread creates 3s delay
 //					for (int i = 1; i < 3000; i++) {
 //					TODO Uncomment Sleep Code
-						Thread.sleep(3000);
+						Thread.sleep(3);
 					/*	sb.append(".");
 						lblNewLabel.setText(sb.toString());
 //						System.out.println(sb.toString());
 						if(i%3 == 0)
 							sb.delete(l, l+3);
 					}*/
-//					new MainFrame().setVisible(true);
-//					setVisible(false);
+					new MainFrame();
+					setVisible(false);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
