@@ -1,6 +1,8 @@
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.awt.Window;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,7 +19,7 @@ public class MainFrame extends JFrame {
 		setTitle("Attendance Management");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
+		contentPane.setBorder(new EmptyBorder(15, 15, 15, 15));
 		contentPane.setLayout(new BorderLayout());
 		setContentPane(contentPane);
 
@@ -35,8 +37,10 @@ public class MainFrame extends JFrame {
 		p_teacher.add(new TeacherLoginPanel(p_teacher, getBounds()), "teacher_login");
 
 		
-		setSize(800, 600);
+//		setSize(800, 600);
+		pack();
 		setLocationRelativeTo(null);
+//		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setVisible(true);
 	}
 }
