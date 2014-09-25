@@ -5,7 +5,9 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.StringTokenizer;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -129,6 +131,48 @@ public class TeacherLoggedInPanel extends JPanel implements ActionListener {
 		cb_subject = new JComboBox();
 		add(cb_subject, gbc);
 
+		// label - absentees
+		gbc.gridx = 0;
+		gbc.gridy = 6;
+		gbc.anchor = GridBagConstraints.LINE_END;
+		JLabel lbl_absentees = new JLabel("Absentees");
+		lbl_absentees.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		add(lbl_absentees, gbc);
+
+		// text field - absentees
+		gbc.gridx = 1;
+		gbc.gridy = 6;
+		gbc.anchor = GridBagConstraints.LINE_START;
+
+		final JTextField tf_absentees = new JTextField();
+		tf_absentees.setColumns(10);
+		tf_absentees
+				.setToolTipText("Enter absentees roll numbers separated by commas");
+		add(tf_absentees, gbc);
+
+		// button - insert
+		JButton b_insert = new JButton("Insert");
+		b_insert.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				StringTokenizer st = new StringTokenizer(tf_absentees.getText()
+						.toString(), ",");
+				while (st.hasMoreTokens()) {
+					int roll_no = Integer.parseInt(st.nextToken());
+					int period_id = 0;
+					int student_id = 0;
+
+					String sql_insert = "INSERT INTO absentee(absentee_id, period_id, student_id) VALUES (null, "
+							+ period_id + "," + student_id + ")";
+				}
+			}
+		});
+		gbc.gridx = 1;
+		gbc.gridy = 7;
+		gbc.anchor = GridBagConstraints.LINE_START;
+		add(b_insert, gbc);
+
 		// setting up combo boxes
 		// -------------------------
 
@@ -150,8 +194,8 @@ public class TeacherLoggedInPanel extends JPanel implements ActionListener {
 				+ " AND branch = '"
 				+ cb_branch.getSelectedItem().toString() + "')";
 		db.initComboBox(cb_subject, sql_subject);
-		
-		//get no. of hours from database
+
+		// get no. of hours from database
 		String sql_hours = "SELECT DISTINCT(hour) FROM period";
 		db.initComboBox(cb_hour, sql_hours);
 	}
