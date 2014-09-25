@@ -1,8 +1,5 @@
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
 import java.awt.GridLayout;
-import java.awt.Window;
-import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -34,14 +31,13 @@ public class MainFrame extends JFrame {
 		final JPanel p_teacher = new JPanel();
 		tabbedPane.addTab("Teacher", null, p_teacher, null);
 		p_teacher.setLayout(new GridLayout(0, 1, 0, 0));
-//		TODO change back to TeacherLoginPanel
+		// TODO change back to TeacherLoginPanel
 		p_teacher.add(new TeacherLoggedInPanel(), "teacher_login");
 
-		
 		setSize(800, 600);
-//		pack();
+		// pack();
 		setLocationRelativeTo(null);
-//		setExtendedState(JFrame.MAXIMIZED_BOTH);
+		// setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setVisible(true);
 	}
 }
