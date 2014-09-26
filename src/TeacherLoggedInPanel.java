@@ -4,8 +4,9 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Calendar;
-import java.util.StringTokenizer;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -89,16 +90,10 @@ public class TeacherLoggedInPanel extends JPanel implements ActionListener {
 		gbc.gridy = 3;
 		gbc.anchor = GridBagConstraints.LINE_START;
 
-		JTextField tf_date = new JTextField();
+		final JTextField tf_date = new JTextField();
 		tf_date.setColumns(10);
-		Calendar c = Calendar.getInstance();
-		StringBuilder sb = new StringBuilder();
-		sb.append(c.get(Calendar.DAY_OF_MONTH));
-		sb.append("/");
-		sb.append(c.get(Calendar.MONTH));
-		sb.append("/");
-		sb.append(c.get(Calendar.YEAR));
-		tf_date.setText(sb.toString());
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/M/yyyy");
+		tf_date.setText(sdf.format(new Date()));
 		add(tf_date, gbc);
 
 		// label - hour
@@ -156,15 +151,19 @@ public class TeacherLoggedInPanel extends JPanel implements ActionListener {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				StringTokenizer st = new StringTokenizer(tf_absentees.getText()
-						.toString(), ",");
-				while (st.hasMoreTokens()) {
-					int roll_no = Integer.parseInt(st.nextToken());
-					int period_id = 0;
-					int student_id = 0;
-					System.out.println(roll_no);
-					String sql_insert = "INSERT INTO absentee(absentee_id, period_id, student_id) VALUES (null, "
-							+ period_id + "," + student_id + ")";
+				// **********************
+				// INSERT ABSENTEE BUTTON
+				// **********************
+				String absentees = tf_absentees.getText().toString();
+				String subjectName = cb_subject.getSelectedItem().toString();
+				String date = tf_date.getText().toString();
+				int hour = Integer.parseInt(cb_hour.getSelectedItem()
+						.toString());
+
+				try {
+					db.insertAbsentees(hour, date, subjectName, absentees);
+				} catch (SQLException e1) {
+					e1.printStackTrace();
 				}
 			}
 		});
