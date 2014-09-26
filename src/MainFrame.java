@@ -26,16 +26,15 @@ public class MainFrame extends JFrame {
 		final JPanel p_student = new JPanel();
 		tabbedPane.addTab("Student", null, p_student, null);
 		p_student.setLayout(new GridLayout(0, 1, 0, 0));
-		p_student.add(new StudentLoginPanel(p_student, getBounds()));
+		p_student.add(new StudentCardPanel());
 
 		final JPanel p_teacher = new JPanel();
 		tabbedPane.addTab("Teacher", null, p_teacher, null);
 		p_teacher.setLayout(new GridLayout(0, 1, 0, 0));
-		// TODO change back to TeacherLoginPanel
-		p_teacher.add(new TeacherLoggedInPanel(), "teacher_login");
+		p_teacher.add(new TeacherLoginPanel(p_teacher), "teacher_login");
 
-		setSize(800, 600);
-		// pack();
+		setSize(800, 500);
+//		 pack();
 		setLocationRelativeTo(null);
 		// setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setVisible(true);

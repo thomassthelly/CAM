@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -22,7 +23,7 @@ public class StudentLoginPanel extends Panel {
 	DBHelper db = null;
 	ResultSet rs = null;
 
-	public StudentLoginPanel(final JPanel p_student, final Rectangle rectangle) {
+	public StudentLoginPanel(final JPanel p_student) {
 		// initialize database connection
 		db = new DBHelper();
 		// setLayout(new AbsoluteLayout());
@@ -133,10 +134,11 @@ public class StudentLoginPanel extends Panel {
 						} else {
 							int stud_id = Integer.parseInt(rs.getObject(1)
 									.toString());
-							p_student.removeAll();
-							p_student.add(new StudentLoggedInPanel(stud_id,
-									p_student, rectangle),
+//							p_student.removeAll();
+							p_student.add(new StudentLoggedInPanel(stud_id),
 									"student_logged_in_panel");
+							CardLayout c = (CardLayout) p_student.getLayout();
+							c.next(p_student);
 
 						}
 					} catch (SQLException e) {

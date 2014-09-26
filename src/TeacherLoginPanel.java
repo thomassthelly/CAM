@@ -19,7 +19,7 @@ public class TeacherLoginPanel extends JPanel {
 	DBHelper db = null;
 	ResultSet rs = null;
 
-	public TeacherLoginPanel(final JPanel p_teacher, final Rectangle rectangle) {
+	public TeacherLoginPanel(final JPanel p_teacher) {
 		db = new DBHelper();
 		setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
