@@ -27,7 +27,7 @@ public class DBHelper {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection(
-					"jdbc:mysql://localhost/attendance", "root", "");
+					"jdbc:mysql://localhost/AttMan", "root", "stardock");
 			statement = connection.createStatement();
 		} catch (SQLException e) {
 			e.printStackTrace();
