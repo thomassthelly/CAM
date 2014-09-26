@@ -162,7 +162,7 @@ public class TeacherLoggedInPanel extends JPanel implements ActionListener {
 					int roll_no = Integer.parseInt(st.nextToken());
 					int period_id = 0;
 					int student_id = 0;
-
+					System.out.println(roll_no);
 					String sql_insert = "INSERT INTO absentee(absentee_id, period_id, student_id) VALUES (null, "
 							+ period_id + "," + student_id + ")";
 				}

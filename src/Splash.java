@@ -29,6 +29,11 @@ public class Splash extends JFrame {
 
 	public Splash() {
 
+		System.setProperty("apple.laf.useScreenMenuBar", "true"); 
+
+		System.setProperty("com.apple.mrj.application.apple.menu.about.name", "Imma Be :D");
+		
+		
 		// initialize all sub components
 		// ----------------------------------
 
