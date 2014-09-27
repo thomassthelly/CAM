@@ -1,16 +1,13 @@
-import java.awt.Component;
-import java.awt.Graphics;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.Border;
 
 public class StudentLoggedInSidePanel extends JPanel {
 
@@ -23,39 +20,64 @@ public class StudentLoggedInSidePanel extends JPanel {
 
 		// initialize all sub components
 		// ----------------------------------
-		setLayout(new GridBagLayout());
-		setBorder(BorderFactory.create);
-		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(10, 10, 10, 10);
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.weightx = 1;
-		gbc.weighty = 1;
-		gbc.fill = GridBagConstraints.NONE;
+		setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
+		// setBorder(BorderFactory.create);
 
 		JLabel lblName = new JLabel("Name");
-		gbc.gridx = 0;
-		gbc.gridy = 0;
-		gbc.anchor = GridBagConstraints.LINE_START;
-		add(lblName, gbc);
+		add(lblName);
 
 		JLabel lblBranch = new JLabel("Branch");
-		gbc.gridx = 0;
-		gbc.gridy = 1;
-		gbc.anchor = GridBagConstraints.LINE_START;
-		add(lblBranch, gbc);
+		add(lblBranch);
 
 		JLabel lblSemester = new JLabel("Semester");
-		gbc.gridx = 0;
-		gbc.gridy = 2;
-		gbc.anchor = GridBagConstraints.LINE_START;
-		add(lblSemester, gbc);
+		add(lblSemester);
 
 		JLabel lblYear = new JLabel("Year");
-		gbc.gridx = 0;
-		gbc.gridy = 3;
-		gbc.anchor = GridBagConstraints.LINE_START;
-		add(lblYear, gbc);
+		add(lblYear);
+
+		JPanel student_options = new JPanel();
+
+		student_options.setLayout(new BoxLayout(student_options,
+				BoxLayout.PAGE_AXIS));
+
+		JButton status = new JButton("Status");
+		status.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) getParent().getLayout();
+				cl.show(getParent().getParent(),
+						"student_logged_in_main_status_panel");
+			}
+		});
+		student_options.add(status);
+
+		JButton subject_wise = new JButton("Subject Wise");
+		subject_wise.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				CardLayout cl = (CardLayout) getParent().
+						.getLayout();
+				cl.show(getParent().,
+						"student_logged_in_main_subject_wise_panel");
+			}
+		});
+		student_options.add(subject_wise);
+
+		JButton report = new JButton("Report");
+
+		student_options.add(report);
+		add(student_options);
+
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				CardLayout c = (CardLayout) getParent().getParent().getLayout();
+				c.previous(getParent().getParent());
+			}
+		});
+		student_options.add(btnBack);
 
 		// initialize data into view elements
 		// --------------------------------------------
